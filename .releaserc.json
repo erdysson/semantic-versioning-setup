@@ -1,0 +1,52 @@
+{
+    "branches": [
+        "master",
+        "main"
+    ],
+    "plugins": [
+        [
+            "@semantic-release/commit-analyzer",
+            {
+                "preset": "angular",
+                "releaseRules": [
+                    {
+                        "type": "your-custom-type-triggers-release",
+                        "release": "minor|major|breaking"
+                    },
+                    {
+                        "type": "your-other-custom-type-without-release",
+                        "release": false
+                    },
+                    {
+                        "type": "breaking",
+                        "release": "major"
+                    }
+                ]
+            }
+        ],
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "CHANGELOG.md"
+            }
+        ],
+        [
+            "@semantic-release/exec",
+            {
+                "execCwd": ".",
+                "prepareCmd": "npm version ${nextRelease.version} --no-git-tag-version"
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": [
+                    "./package.json",
+                    "./CHANGELOG.md"
+                ],
+                "message": "chore(your-scope): created tag ${nextRelease.version}\n\n${nextRelease.notes}"
+            }
+        ]
+    ]
+}
