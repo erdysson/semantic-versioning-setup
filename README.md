@@ -152,7 +152,7 @@ echo "${CI_COMMIT_MESSAGE}" | npx commitlint
 Finally, to see your changes and versions created by semantic-release, simply run
 
 ```shell
-npx --no-install semantic-release
+npx --no-install semantic-release --no-ci
 ```
 
 Which you can run in your pipeline in the same way as well.
