@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "You can add your pre-push validation script to file under .husky/pre-push"

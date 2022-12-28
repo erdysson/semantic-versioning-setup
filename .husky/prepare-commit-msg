@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "let's lint our commits here"
+
+npx --no-install commitlint --from HEAD~1 --to HEAD --verbose
